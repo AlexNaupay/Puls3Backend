@@ -1,0 +1,46 @@
+@media screen and (min-width: 768px){
+    /* 640x360 opera mobile -> Ancho real(landscape): 427px*/
+
+    aside#bienvenido{
+        border-bottom: 1px solid #CCC;
+        display: block;
+        float: right;
+        margin-right: 1em;
+        width: 23%;
+    }
+
+    aside#bienvenido a{
+        background-color: #22BDE0;
+        color: #EFEFEF;
+        display: block;
+        padding: 0.5em 0;
+        width: 100%;
+    }
+    aside#bienvenido a,aside#bienvenido p#msj_registro{
+        text-align: center;
+    }
+    aside#bienvenido p#msj_registro{
+        font-size: 0.8em;
+    }
+
+    aside#bienvenido video{
+        width: 100%;
+    }
+    body{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    section#contenido{
+        width: 72%;
+    }
+
+    #contenido .item{
+        width: 48%;
+        float:left;
+    }
+
+    #contenido .item:nth-child(even){
+        margin-left:2%;
+    }
+}
