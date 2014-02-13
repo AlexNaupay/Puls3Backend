@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
+from main.views import HomeListView
 admin.autodiscover()
 
 from django.views.generic import TemplateView
@@ -15,4 +16,5 @@ urlpatterns = patterns('',
     url(r'^up/(?P<id_post>\d+)$','main.views.up'),
     url(r'^down/(?P<id_post>\d+)$','main.views.down'),
     url(r'^home/$',TemplateView.as_view(template_name='index.html'),name='home'),
+    url(r'^home2/$',HomeListView.as_view(),name='home2'),
 )

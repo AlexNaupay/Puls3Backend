@@ -42,3 +42,11 @@ def down(request,id_post):
 	#post.votos+=-1 #Da problemas y de redireccion tambien
 	post.save()
 	return HttpResponseRedirect('/')
+
+from django.views.generic import ListView
+class HomeListView(ListView): #ListView, para listas objetos
+	model=Post #El modelo (se tomará todos de la base de datos)
+	context_object_name='posts' #Nombre en el contexto (en la plantilla)
+	#template_name='index.html'
+	def get_template_names(self): #Nombre de la plantilla
+		return 'index.html'
