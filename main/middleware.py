@@ -8,8 +8,9 @@ def ubicar_pais():
 
 class PaisMiddleware():
 	def process_request(self, request):
-		pais = ubicar_pais()
-		if pais == "Peru":
-			return redirect('http://alexnaupay.hol.es')
-		else:
-			pass
+		pass
+	# 	pais = ubicar_pais()
+	# 	if pais == "Peru":
+	# 		return redirect('http://alexnaupay.hol.es')
+	# 	else:
+	# 		pass
