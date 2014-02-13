@@ -23,15 +23,7 @@
             </figure>
 		</header>
     <!-- NAVEGACIÓN -->
-        <nav>
-			<ul>
-				<li id="flechita_nav"><a href="/"></a></li>
-                {% for categoria in categorias %}
-				    <li><a href="/categoria/{{categoria.pk}}">{{categoria.nombre}}</a></li>
-				{% endfor%}
-				<li id ="publicar_nav"><a href="#">Publicar</a></li>
-			</ul>
-        </nav>
+        {% include 'menu.html' %}
         {%if formulario.errors %}
             <p>Error!!</p>
         {% endif%}
@@ -64,7 +56,7 @@
                     por <a href="#">{{post.autor}}</a>
                 </p>
                 <p class="datos_item">
-                    <a class="tag_item" href="#">{{post.categoria}}</a>
+                    <a class="tag_item" href="/categoria/{{post.categoria.pk}}">{{post.categoria}}</a>
                     <span class="fecha_item">hace <strong>{{post.fecha_publicacion|timesince}}</strong></span>
                     <a class="comentario_item" href="#">455</a>
                     <a class="guardar_item" href="#"></a>
@@ -76,12 +68,15 @@
                     <a class="down" href="/down/{{post.pk}}"></a>
                 </p>
             </article>
+        {% empty %}
+            <h2>Aún no tenemos Posts para esta categoría</h2>
         {% endfor %}
         </section>
 
 		<!-- FOOTER -->
         <footer>
         	<p><strong>Powered by Alex Naupay</strong></p>
+            <p>{{frase}}</p>
         	<p>Mejorando.la 2014 ®</p>
         </footer>
         <script src="{{STATIC_URL}}js/jquery.js"></script>

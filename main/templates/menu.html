@@ -1,0 +1,13 @@
+<nav>
+	<ul>
+		<li id="flechita_nav"><a href="/"></a></li>
+		{% for categoria in menu %}
+		<li><a href="{{categoria.url}}"
+			{% if categoria.active%}
+			style="background-color: orange;"
+			{% endif %}
+			>{{categoria.name}}</a></li>
+		{% endfor%}
+		<li id ="publicar_nav"><a href="#">Publicar</a></li>
+	</ul>
+</nav>
