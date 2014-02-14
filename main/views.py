@@ -56,3 +56,12 @@ from django.views.generic import DetailView
 class PostDetailView(DetailView):
 	model=Post #Me pregunto ¿Cómo sabrá que nombre tomar en la plantilla?, pero puse post y tomó eso
 	template_name='postdetail.html'
+
+
+from rest_framework import viewsets
+from main.serializer import PostSerializer
+
+
+class PostViewSet(viewsets.ModelViewSet):
+	queryset = Post.objects.all() #La consulta
+	serializer_class = PostSerializer 
