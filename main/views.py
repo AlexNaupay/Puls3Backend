@@ -1,3 +1,4 @@
+# -*- encoding:utf:8 -*-
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
@@ -50,3 +51,8 @@ class HomeListView(ListView): #ListView, para listas objetos
 	#template_name='index.html'
 	def get_template_names(self): #Nombre de la plantilla
 		return 'index.html'
+
+from django.views.generic import DetailView
+class PostDetailView(DetailView):
+	model=Post #Me pregunto ¿Cómo sabrá que nombre tomar en la plantilla?, pero puse post y tomó eso
+	template_name='postdetail.html'

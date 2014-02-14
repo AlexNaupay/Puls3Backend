@@ -1,0 +1,81 @@
+<!DOCTYPE html> <!-- directiva para navegador -->
+<html lang='es'>
+	<head>
+		<meta charset="UTF-8"/> <!-- Codificación para caracteres -->
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1 maximum-scale=1" />
+		<title>Puls3:Comunidad de gente PRO y cool</title>
+        <link rel="stylesheet" href="{{STATIC_URL}}styles/normalize.css"/>
+		<link rel="stylesheet" href="{{STATIC_URL}}styles/styles.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}styles/responsive.css"/>
+        <link rel="stylesheet" href="{{STATIC_URL}}styles/small.css"/>
+        <!--<script type="text/javascript" src="js/script.js"></script>-->
+	</head>
+	<body>
+		<header>
+			<figure id="logo">
+				<img src="{{STATIC_URL}}images/logo.png" alt="Logo">
+			</figure>
+                <h1>Puls3, Comunidad de gente cool, atractiva y millonaria</h1>
+            <figure id="avatar">
+                <img src="{{STATIC_URL}}images/aAvatar.jpg"  alt=""/>
+                <figcaption></figcaption>
+            </figure>
+		</header>
+    <!-- NAVEGACIÓN -->
+        {% include 'menu.html' %}
+        {%if formulario.errors %}
+            <p>Error!!</p>
+        {% endif%}
+        <form method='POST' action=''>
+            {% csrf_token %}
+            {{formulario.as_p}}
+            <input type="submit" value="Publicar">
+        </form>
+
+        <aside id="bienvenido">
+            <h2>Hola, registrate!</h2>
+            <p>Es importante que te registres</p>
+            <a id="registro"href="">Ok, Registrarme</a>
+            <p id="msj_registro">En serio, registrate por favor</p>
+            <video controls="">
+                <source src="{{STATIC_URL}}Beauty And A Beat-Justin Bieber (Alex Goot and Chrissy Costanza).mp4" type="video/mp4"/>
+            </video>
+        </aside>
+		<!-- SECCION DE POST	 -->
+        <section id="contenido">
+             <article class="item">
+                <figure class="imagen_item">
+                    <img src="{{STATIC_URL}}images/imagen.jpg" alt="">
+                </figure>
+                <h2 class="titulo_item">
+                    <a href="{{post.enlace}}">{{post.titulo}}</a>
+                </h2>
+                <p class="autor_item">
+                    por <a href="#">{{post.autor}}</a>
+                </p>
+                <p class="datos_item">
+                    <a class="tag_item" href="/categoria/{{post.categoria.pk}}">{{post.categoria}}</a>
+                    <span class="fecha_item">hace <strong>{{post.fecha_publicacion|timesince}}</strong></span>
+                    <a class="comentario_item" href="#">455</a>
+                    <a class="guardar_item" href="#"></a>
+                </p>
+
+                <p class="votacion">
+                    <a class="up" href="/up/{{post.pk}}"></a>
+                    {{post.votos}}
+                    <a class="down" href="/down/{{post.pk}}"></a>
+                </p>
+            </article>
+        </section>
+
+		<!-- FOOTER -->
+        <footer>
+        	<p><strong>Powered by Alex Naupay</strong></p>
+            <p>{{frase}}</p>
+        	<p>Mejorando.la 2014 ®</p>
+        </footer>
+        <script src="{{STATIC_URL}}js/jquery.js"></script>
+        <script src="{{STATIC_URL}}js/script.js"></script>
+	</body>
+</html>
