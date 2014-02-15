@@ -1,3 +1,4 @@
+{% load static from staticfiles %}
 <!DOCTYPE html> <!-- directiva para navegador -->
 <html lang='es'>
 	<head>
@@ -5,7 +6,7 @@
         <meta name="viewport" content="width=device-width,
         initial-scale=1 maximum-scale=1" />
 		<title>Puls3:Comunidad de gente PRO y cool</title>
-        {% load static from staticfiles %}
+        
         <link rel="stylesheet" href="{% static 'styles/normalize.css' %}"/>
 		<link rel="stylesheet" href="{% static 'styles/styles.css' %}"/>
         <link rel="stylesheet" href="{% static 'styles/responsive.css' %}"/>
@@ -40,7 +41,7 @@
             <a id="registro"href="">Ok, Registrarme</a>
             <p id="msj_registro">En serio, registrate por favor</p>
             <video controls="">
-                <source src="{{STATIC_URL}}Beauty And A Beat-Justin Bieber (Alex Goot and Chrissy Costanza).mp4" type="video/mp4"/>
+                
             </video>
         </aside>
 		<!-- SECCION DE POST	 -->

@@ -21,13 +21,13 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '!^ixxn72h7f)%v$b%_)yc*qr#i4mg0vu4j&yy$0a#20@5)ndn!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 TEMPLATES_DIRS=(
     os.path.join(PROJECT_DIR,'templates'),
 )
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -94,3 +94,5 @@ TEMPLATE_CONTEXT_PROCESSORS=TCP+(
 
 STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2]+['static'])
 # Luego usar >python manage.py collectstatic
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
