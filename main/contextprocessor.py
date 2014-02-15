@@ -1,9 +1,13 @@
 # -*- encoding: utf-8 -*-
-
+from random import choice
 from main.models import Categoria
-
+from django.core.cache import cache #para hacer el cache
 def frase_footer(request):
-	return {'frase':'Sueña, tus sueños crearán la realidad'}
+	numero = cache.get('numero')
+	if numero is None: #Si aún no hay numero guardado
+		numero = choice(('1','2','3','4','5'))
+		cache.set('numero',numero)
+	return {'frase':'Sueña, tus sueños crearán la realidad '+numero}
 
 def menu(request):
 	categorias=Categoria.objects.all()

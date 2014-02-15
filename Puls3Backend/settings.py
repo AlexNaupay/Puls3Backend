@@ -96,3 +96,15 @@ STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2]+['static'
 # Luego usar >python manage.py collectstatic
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'redis_cache.RedisCache',
+        'LOCATION': 'localhost:6379',
+        'OPTIONS': {
+            'BD': 1,
+            #'PASSWORD':
+            'PARSER_CLASS':'redis.connection.HiredisParser'
+        }
+    }
+}
