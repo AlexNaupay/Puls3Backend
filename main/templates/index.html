@@ -5,20 +5,21 @@
         <meta name="viewport" content="width=device-width,
         initial-scale=1 maximum-scale=1" />
 		<title>Puls3:Comunidad de gente PRO y cool</title>
-        <link rel="stylesheet" href="{{STATIC_URL}}styles/normalize.css"/>
-		<link rel="stylesheet" href="{{STATIC_URL}}styles/styles.css">
-        <link rel="stylesheet" href="{{STATIC_URL}}styles/responsive.css"/>
+        {% load static from staticfiles %}
+        <link rel="stylesheet" href="{% static 'styles/normalize.css' %}"/>
+		<link rel="stylesheet" href="{% static 'styles/styles.css' %}"/>
+        <link rel="stylesheet" href="{% static 'styles/responsive.css' %}"/>
         <link rel="stylesheet" href="{{STATIC_URL}}styles/small.css"/>
         <!--<script type="text/javascript" src="js/script.js"></script>-->
 	</head>
 	<body>
 		<header>
 			<figure id="logo">
-				<img src="{{STATIC_URL}}images/logo.png" alt="Logo">
+				<img src="{% static 'images/logo.png' %}" alt="Logo">
 			</figure>
                 <h1>Puls3, Comunidad de gente cool, atractiva y millonaria</h1>
             <figure id="avatar">
-                <img src="{{STATIC_URL}}images/aAvatar.jpg"  alt=""/>
+                <img src="{% static 'images/aAvatar.jpg' %}"  alt=""/>
                 <figcaption></figcaption>
             </figure>
 		</header>
@@ -47,7 +48,7 @@
         {% for post in posts%}
              <article class="item">
                 <figure class="imagen_item">
-                    <img src="{{STATIC_URL}}images/imagen.jpg" alt="">
+                    <img src="{% static 'images/imagen.jpg' %}" alt="">
                 </figure>
                 <h2 class="titulo_item">
                     <a href="{{post.enlace}}">{{post.titulo}}</a>
@@ -79,7 +80,7 @@
             <p>{{frase}}</p>
         	<p>Mejorando.la 2014 ®</p>
         </footer>
-        <script src="{{STATIC_URL}}js/jquery.js"></script>
-        <script src="{{STATIC_URL}}js/script.js"></script>
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/script.js' %}"></script>
 	</body>
 </html>
