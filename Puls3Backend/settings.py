@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'main',
     'rest_framework',
+    'mockups',
 )
 
 MIDDLEWARE_CLASSES = (
