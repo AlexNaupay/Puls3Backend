@@ -6,11 +6,11 @@ admin.autodiscover()
 
 from django.views.generic import TemplateView
 
-from main.views import PostViewSet
+from main.views import PostViewSet,CategoriaViewSet
 from rest_framework import routers
 route = routers.DefaultRouter()
 route.register(r'links',PostViewSet)
-
+route.register(r'categoria',CategoriaViewSet)
 
 urlpatterns = patterns('',
     # Examples:

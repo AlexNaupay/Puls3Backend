@@ -65,3 +65,8 @@ from main.serializer import PostSerializer
 class PostViewSet(viewsets.ModelViewSet):
 	queryset = Post.objects.all() #La consulta
 	serializer_class = PostSerializer 
+
+from main.serializer import CategoriaSerializer
+class CategoriaViewSet(viewsets.ModelViewSet):
+	queryset = Categoria.objects.all() #la consulta, automaticamente mostrará la categoria de el
+	serializer_class = CategoriaSerializer #Clase Serializadora
