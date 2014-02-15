@@ -91,3 +91,6 @@ TEMPLATE_CONTEXT_PROCESSORS=TCP+(
     'main.contextprocessor.frase_footer',
     'main.contextprocessor.menu'
 )
+
+STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2]+['static'])
+# Luego usar >python manage.py collectstatic
