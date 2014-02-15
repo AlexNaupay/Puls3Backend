@@ -7,7 +7,7 @@ from main.forms import *
 from django.contrib.auth.decorators import login_required
 #from django.http import HttpResponse
 from django.views.decorators.cache import cache_page
-@cache_page(600) #Tiempo en segundos
+#@cache_page(600) #Tiempo en segundos # No es vale si trabajamos con usuarios
 def home(request):
 	#if request.method=='POST': #Si viene de clicar en boton de formulario
 	if request.POST:

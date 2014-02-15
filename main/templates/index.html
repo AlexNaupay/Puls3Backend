@@ -1,4 +1,4 @@
-{% load static from staticfiles %}
+{% load static from staticfiles %} {% load cache %}
 <!DOCTYPE html> <!-- directiva para navegador -->
 <html lang='es'>
 	<head>
@@ -41,10 +41,10 @@
             <a id="registro"href="">Ok, Registrarme</a>
             <p id="msj_registro">En serio, registrate por favor</p>
             <video controls="">
-                
             </video>
         </aside>
-		<!-- SECCION DE POST	 -->
+        <!-- SECCION DE POST     -->
+        {% cache 600 cache_contenido%}   
         <section id="contenido">
         {% for post in posts%}
              <article class="item">
@@ -74,7 +74,7 @@
             <h2>Aún no tenemos Posts para esta categoría</h2>
         {% endfor %}
         </section>
-
+        {% endcache %}
 		<!-- FOOTER -->
         <footer>
         	<p><strong>Powered by Alex Naupay</strong></p>

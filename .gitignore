@@ -3,3 +3,4 @@
 *.pyc
 pruebas.py
 static/
+*.rdb
