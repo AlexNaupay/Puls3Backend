@@ -45,6 +45,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware', #guardar toda la web
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -52,8 +53,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'main.middleware.PaisMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware', #Guardar toda la web
 )
-
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True #Solo guardar para sesssiones anónimas
 ROOT_URLCONF = 'Puls3Backend.urls'
 
 WSGI_APPLICATION = 'Puls3Backend.wsgi.application'
@@ -109,3 +111,5 @@ CACHES = {
         }
     }
 }
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db' #1

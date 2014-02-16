@@ -6,6 +6,16 @@ from main.models import *
 from main.forms import *
 from django.contrib.auth.decorators import login_required
 #from django.http import HttpResponse
+from django.core.cache import cache
+from django.db.models.signals import post_save #Envia señal de guardado
+from django.contrib.sessions.models import Session #Borrar cache != de Session
+from django.dispatch import receiver
+
+@receiver(post_save)
+def clear_cache(sender,**kwargs):
+	if sender !=Session:
+		cache.clear()
+
 from django.views.decorators.cache import cache_page
 #@cache_page(600) #Tiempo en segundos # No es vale si trabajamos con usuarios
 def home(request):
