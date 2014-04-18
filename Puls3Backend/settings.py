@@ -1,4 +1,5 @@
 #coding:utf-8
+# prueba para git desde Manajro Linux
 """
 Django settings for Puls3Backend project.
 
