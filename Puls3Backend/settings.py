@@ -1,4 +1,4 @@
-#coding:utf-8
+# coding:utf-8
 # prueba para git desde Manajro Linux
 """
 Django settings for Puls3Backend project.
@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
 import os
-PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 
+PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -25,11 +25,10 @@ SECRET_KEY = '!^ixxn72h7f)%v$b%_)yc*qr#i4mg0vu4j&yy$0a#20@5)ndn!'
 DEBUG = False
 
 TEMPLATE_DEBUG = DEBUG
-TEMPLATES_DIRS=(
-    os.path.join(PROJECT_DIR,'templates'),
+TEMPLATES_DIRS = (
+    os.path.join(PROJECT_DIR, 'templates'),
 )
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -46,7 +45,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.cache.UpdateCacheMiddleware', #guardar toda la web
+    'django.middleware.cache.UpdateCacheMiddleware',  # guardar toda la web
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -54,13 +53,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'main.middleware.PaisMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware', #Guardar toda la web
+    'django.middleware.cache.FetchFromCacheMiddleware',  # Guardar toda la web
 )
-CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True #Solo guardar para sesssiones anónimas
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True  # Solo guardar para sesssiones anónimas
 ROOT_URLCONF = 'Puls3Backend.urls'
 
 WSGI_APPLICATION = 'Puls3Backend.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -85,18 +83,18 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 STATIC_URL = '/static/'
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
-TEMPLATE_CONTEXT_PROCESSORS=TCP+(
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'main.contextprocessor.frase_footer',
     'main.contextprocessor.menu'
 )
 
-STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2]+['static'])
+STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['static'])
 # Luego usar >python manage.py collectstatic
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
@@ -107,10 +105,10 @@ CACHES = {
         'LOCATION': 'localhost:6379',
         'OPTIONS': {
             'BD': 1,
-            #'PASSWORD':
-            'PARSER_CLASS':'redis.connection.HiredisParser'
+            # 'PASSWORD':
+            'PARSER_CLASS': 'redis.connection.HiredisParser'
         }
     }
 }
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db' #1
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'  # 1

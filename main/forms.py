@@ -3,7 +3,8 @@ from django import forms
 
 from main.models import Post
 
+
 class PostForm(ModelForm):
-	class Meta:
-		model=Post
-		exclude=('votos','autor')
+    class Meta:
+        model = Post
+        exclude = ('votos', 'autor')
